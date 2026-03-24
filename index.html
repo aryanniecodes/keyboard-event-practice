@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyboard Practice</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        #text {
+            font-size: 80px;
+            color: white;
+            letter-spacing: 5px;
+            transition: transform 0.1s ease;
+        }
+
+        .hint {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="text">A</div>
+        <div class="hint">Press any key...</div>
+    </div>
+
+    <script>
+        const textElement = document.getElementById("text");
+
+        document.addEventListener("keydown", function(event) {
+            textElement.textContent = event.key;
+            console.log(event.key);
+            textElement.style.transform = "scale(1.2)";
+            setTimeout(() => {
+                textElement.style.transform = "scale(1)";
+            }, 100);
+        });
+    </script>
+
+</body>
+</html>
